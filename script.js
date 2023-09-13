@@ -10,7 +10,7 @@
                 // Check if the entered username and password match
                 if (username === "Grade-10" && password === "ARROYO") {
                     // Redirect to the dashboard page
-                    window.location.href = "index.html";
+                    window.location.href = "lordpawnmc.github.io/group-2/index.html";
                 } else {
                     // Display an error message (customize this)
                     alert("Login failed. Please try again.");
