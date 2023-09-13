@@ -10,7 +10,7 @@
                 // Check if the entered username and password match
                 if (username === "Grade-10" && password === "ARROYO") {
                     // Redirect to the dashboard page
-                    window.location.href = "dashboard.html";
+                    window.location.href = "1.html";
                 } else {
                     // Display an error message (customize this)
                     alert("Login failed. Please try again.");
