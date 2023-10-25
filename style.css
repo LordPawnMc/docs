@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  background: url('background.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+header {
+  padding: 30px;
+  background: #999;
+  border: 1px solid #05A3FF;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+}
+
+.form-box {
+  position: relative;
+  margin: 3% auto;
+  padding: 5px;
+  background: #fff;
+  width: 250px;
+  height: 305px;
+  border-radius: 2%;
+  background: #23DFCA;
+}
+
+.button-box {
+  width: 20px;
+  margin: 7px auto;
+  position: relative;
+  box-shadow: 0 0 20px 8px #ff61241f;
+  border-radius: 30px;
+}
+
