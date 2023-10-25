@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login and Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            align-items: center;
+        }
+
+        h2 {
+            text-align: center;
+            color: rgba(255, 133, 0, 1);
+        }
+
+        form {
+            background: #fff;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            width: 50%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="loginUsername" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="loginPassword" required><br>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <label for="newUsername">Username:</label>
+        <input type="text" id="signupUsername" required><br>
+        <label for "newPassword">Password:</label>
+        <input type="password" id="signupPassword" required><br>
+        <button type="button" onclick="signup()">Sign Up</button>
+    </form>
+
+    <p id="message"></p>
+
+<script>
+        function login() {
+            var username = document.getElementById("loginUsername").value;
+            var password = document.getElementById("loginPassword").value;
+
+            // Check if the user exists in local storage.
+            var storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+            var user = storedUsers.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                document.getElementById("message").innerHTML = "Login successful!";
+               
+               setTimeout(function(){
+                 
+                window.location.href = "index.html";
+               },3000);
+               
+            } else {
+                document.getElementById("message").innerHTML = "Login failed. Please try again.";
+            }
+        }
+
+        function signup() {
+            var newUsername = document.getElementById("signupUsername").value;
+            var newPassword = document.getElementById("signupPassword").value;
+
+            // Check if the user already exists in local storage.
+            var storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+            var userExists = storedUsers.some(u => u.username === newUsername);
+
+            if (!userExists) {
+                storedUsers.push({ username: newUsername, password: newPassword });
+                localStorage.setItem("users", JSON.stringify(storedUsers));
+                document.getElementById("message").innerHTML = "Sign-up successful for user: " + newUsername;
+            } else {
+                document.getElementById("message").innerHTML = "User already exists. Please choose a different username.";
+            }
+        }
+    </script>
+    
+</body>
+</html>
